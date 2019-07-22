@@ -79,8 +79,24 @@
           </div>
         </div>
         <div class="hot-goods js-waterfull-wrap" data-src="">
-          <ul class="js-list js-lazy" data-src="">
-            <li>
+          <ul class="js-list js-lazy" data-src="" 
+              v-infinite-scroll="getData"
+              infinite-scroll-disabled="loading"
+              infinite-scroll-distance="30">
+            <li v-for="(list, index) in lists" :key="index">
+              <div class="goods-item">
+                 <a href="">
+                    <div class="thumb img-box">
+                        <img class="fadeIn" :src="list.img">
+                    </div>
+                    <div class="detail">
+                        <div class="title">{{list.name}}</div>
+                        <div class="price">￥{{list.price}}</div>
+                    </div>
+                 </a>
+                </div>
+            </li>
+            <!-- <li>
               <div class="goods-item">
                 <a
                   href="https://h5.youzan.com/v2/showcase/goods?alias=2fwig6rnqfq6m&amp;source=yzapp&amp;f_platform=yzapp">
@@ -229,14 +245,15 @@
                   </div>
                 </a>
               </div>
-            </li>
+            </li> -->
           </ul>
-          <div class="loading-more"><span></span></div>
+          <div class="loading-more" v-show="loading"><span></span></div>
         </div>
         <div class="js-show-find category-guid" style="display: none;"></div>
       </div>
     </div>
-    <div class="bottom-nav">
+    <Foot></Foot>
+    <!-- <div class="bottom-nav">
       <ul>
         <li class="active"><a href="https://maijia.youzan.com/mars/homepage"><i class="icon-home"></i>
             <div>有赞</div>
@@ -251,7 +268,7 @@
             <div>我</div>
           </a></li>
       </ul>
-    </div>
+    </div> -->
   </div>
 </body>
 
