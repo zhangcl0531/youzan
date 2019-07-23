@@ -1,5 +1,7 @@
 var  url = {
-    hotlists:'/index/hotlist'
+    hotlists:'/index/hotlist',
+    topbanner:'/index/banner',
+    toplist:'/category/topList',
 }
 
 //开发环境和真实环境的切换
