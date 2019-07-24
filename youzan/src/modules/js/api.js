@@ -2,6 +2,8 @@ var  url = {
     hotlists:'/index/hotlist',
     topbanner:'/index/banner',
     toplist:'/category/topList',
+    sublist:'/category/subList',
+    ranklist:'/category/rank',
 }
 
 //开发环境和真实环境的切换

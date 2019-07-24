@@ -12,7 +12,10 @@ var app = new Vue({
     el:'#app',
     data() {
         return {
-            toplist:null
+            toplist:null,
+            topindex:0,
+            subdata:null,
+            rankdata:null,
         }
     },
     components:{
@@ -27,9 +30,24 @@ var app = new Vue({
             .catch(function(err){
                 console.log(err)
             })
-        }
+        },
+        getsublist(index){
+            console.log(index)
+            this.topindex = index
+            if(index === 0 ){
+                axios.get(url.ranklist).then(res=>{this.rankdata = res.data.data})
+            }else{
+                axios.get(url.sublist).then(res=>{this.subdata = res.data.data})
+            }
+            
+        },
+        // getranklist(){
+        //     axios.get(url.ranklist).then(res=>{this.rankdata = res.data.data})
+        // },
     },
     created(){
         this.getToplist()
+        // this.getranklist()
+        this.getsublist(0)
     }
 })
