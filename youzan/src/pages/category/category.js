@@ -21,6 +21,11 @@ var app = new Vue({
     components:{
         Foot
     },
+    created(){
+        this.getToplist()
+        // this.getranklist()
+        this.getsublist(0)
+    },
     methods:{
         getToplist(){
             axios.get(url.toplist)
@@ -41,13 +46,12 @@ var app = new Vue({
             }
             
         },
+        toSearch(item){
+            location.href=`search.html?keyword=${item.name}&id=${item.id}`
+        }
         // getranklist(){
         //     axios.get(url.ranklist).then(res=>{this.rankdata = res.data.data})
         // },
     },
-    created(){
-        this.getToplist()
-        // this.getranklist()
-        this.getsublist(0)
-    }
+    
 })
