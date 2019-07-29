@@ -39,6 +39,10 @@ new Vue({
             }else{
                 this.isShow = false
             }
+        },
+        toTop(){
+            scrollTo(0,0)
+            this.isShow = false
         }
     },
 })
