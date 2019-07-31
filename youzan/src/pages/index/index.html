@@ -84,7 +84,7 @@
             infinite-scroll-distance="30">
             <li v-for="(list, index) in lists" :key="index">
               <div class="goods-item">
-                <a href="">
+                <a :href="'goods.html?id='+list.id">
                   <div class="thumb img-box">
                     <img class="fadeIn" :src="list.img">
                   </div>

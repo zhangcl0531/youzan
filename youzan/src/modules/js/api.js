@@ -5,6 +5,9 @@ var  url = {
     sublist:'/category/subList',
     ranklist:'/category/rank',
     searchlist:'/search/list',
+    details:'/goods/details',
+    deal:'/goods/deal',
+    cartadd:'/cart/add',
 }
 
 //开发环境和真实环境的切换

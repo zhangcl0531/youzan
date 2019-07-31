@@ -1,0 +1,10 @@
+.fade-enter-active, .fade-leave-active {
+    /* transition: opacity 0.5s; */
+    transition: all 500ms ease;
+    transform: translateY(0)
+  }
+  .fade-enter, .fade-leave-to{
+    /* opacity: 0; */
+    transform: translateY(100%);
+    opacity: 0;
+  }
