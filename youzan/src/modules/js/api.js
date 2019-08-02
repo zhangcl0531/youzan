@@ -8,6 +8,11 @@ var  url = {
     details:'/goods/details',
     deal:'/goods/deal',
     cartadd:'/cart/add',
+    cartlist:'/cart/list',
+    cartreduce:'/cart/reduce',
+    cartremove:'/cart/remove',
+    cartupdate:'/cart/update',
+    cartmrremove:'/cart/mrremove'
 }
 
 //开发环境和真实环境的切换
