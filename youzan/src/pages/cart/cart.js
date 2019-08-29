@@ -6,6 +6,8 @@ import Vue from 'vue'
 import axios from 'axios'
 import url from 'js/api.js'
 import qs from 'qs'
+import Volecity from 'velocity-animate'
+import Cart from 'js/cartService.js'
 
 new Vue({
   el: '.container',
@@ -155,12 +157,16 @@ new Vue({
       })
     },
     add(good) {
-      axios.post(url.cartupdate, {
-        id: good.id,
-        number: 1
-      }).then(res => {
+      // axios.post(url.cartupdate, {
+      //   id: good.id,
+      //   number: 1
+      // }).then(res => {
+      //   good.number++
+      // })
+      Cart.add(good.id).then(res =>{
         good.number++
       })
+
     },
     remove(shop, good, shopindex, goodindex) {
       this.removepopup = true
@@ -230,6 +236,24 @@ new Vue({
         shop.editing = false
         shop.editingMsg = '编辑'
       })
+    },
+    start(e,good){
+      good.startx = e.changedTouches[0].clientX
+    },
+    end(e,shopindex,goodindex,good){
+      let endx = e.changedTouches[0].clientX
+      let left = '0'
+      console.log(endx,good.startx)
+      if(good.startx - endx > 50){
+        left = '-60px'
+      }
+      if(endx - good.startx > 50){
+        left = '0px'
+      }
+      Volecity(this.$refs[`goods-${shopindex}-${goodindex}`],{
+        left
+      })
+      
     }
   },
 })
